@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace DifferAnt.ViewModels
 {
-    internal class ChangeLine : ViewModelBase
+    internal class ChangeViewModel : ViewModelBase
     {
         #region fields
         private bool _hasBeenReviewed;
@@ -11,7 +11,7 @@ namespace DifferAnt.ViewModels
         #endregion
 
         #region constructors
-        public ChangeLine(Change change)
+        public ChangeViewModel(Change change)
         {
             Debug.Assert(change != null);
 

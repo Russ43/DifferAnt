@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DifferAnt.Views
 {
     /// <summary>
-    /// Interaction logic for ChangeLineListView.xaml
+    /// Interaction logic for ChangeListView.xaml
     /// </summary>
-    public partial class ChangeLineListView : UserControl
+    public partial class ChangeListView : UserControl
     {
-        public ChangeLineListView()
+        public ChangeListView()
         {
             InitializeComponent();
         }

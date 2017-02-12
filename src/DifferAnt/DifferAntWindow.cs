@@ -16,20 +16,20 @@ namespace DifferAnt
         {
             Title = "DifferAnt";
 
-            IList<ChangeLine> changeLines = new ChangeLine[]
+            IList<ChangeViewModel> changeLines = new ChangeViewModel[]
             {
-                new ChangeLine(new Change() { Kind = ChangeKind.Add, Path = "//depot/proj1/src/A.cs"}),
-                new ChangeLine(new Change() { Kind = ChangeKind.Add, Path =  "//depot/proj1/src/B.cs"}),
-                new ChangeLine(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/One.cs"}),
-                new ChangeLine(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/Three.cs"}),
-                new ChangeLine(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/Two.cs"}),
-                new ChangeLine(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/WonHundred.cs"}),
-                new ChangeLine(new Change() { Kind = ChangeKind.Remove, Path =  "//depot/proj1/src/Foo.cs"}),
+                new ChangeViewModel(new Change() { Kind = ChangeKind.Add, Path = "//depot/proj1/src/A.cs"}),
+                new ChangeViewModel(new Change() { Kind = ChangeKind.Add, Path =  "//depot/proj1/src/B.cs"}),
+                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/One.cs"}),
+                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/Three.cs"}),
+                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/Two.cs"}),
+                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/WonHundred.cs"}),
+                new ChangeViewModel(new Change() { Kind = ChangeKind.Remove, Path =  "//depot/proj1/src/Foo.cs"}),
             };
 
-            ChangeLineList changeLineList = new ChangeLineList(changeLines);
+            ChangeListViewModel changeLineList = new ChangeListViewModel(changeLines);
 
-            ChangeLineListView view = new ChangeLineListView();
+            ChangeListView view = new ChangeListView();
             Content = view;
             view.DataContext = changeLineList;
         }

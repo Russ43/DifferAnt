@@ -57,15 +57,15 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\ChangeLine.cs" />
-    <Compile Include="ViewModels\ChangeLineList.cs" />
+    <Compile Include="ViewModels\ChangeViewModel.cs" />
+    <Compile Include="ViewModels\ChangeListViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\ChangeLineListView.xaml.cs">
-      <DependentUpon>ChangeLineListView.xaml</DependentUpon>
+    <Compile Include="Views\ChangeListView.xaml.cs">
+      <DependentUpon>ChangeListView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ChangeLineListView.xaml">
+    <Page Include="Views\ChangeListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

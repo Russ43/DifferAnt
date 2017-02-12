@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace DifferAnt.ViewModels
 {
-    internal class ChangeLineList : ViewModelBase
+    internal class ChangeListViewModel : ViewModelBase
     {
         #region fields
-        private IList<ChangeLine> _changeLines;
+        private IList<ChangeViewModel> _changeLines;
         #endregion
 
         #region
-        public ChangeLineList(IList<ChangeLine> changeLines)
+        public ChangeListViewModel(IList<ChangeViewModel> changeLines)
         {
             Debug.Assert(changeLines != null);
 
@@ -23,7 +23,7 @@ namespace DifferAnt.ViewModels
         #endregion
 
         #region properties
-        public IList<ChangeLine> ChangeLines
+        public IList<ChangeViewModel> ChangeLines
         {
             get
             {
