@@ -54,6 +54,9 @@
     <Compile Include="Models\Change.cs" />
     <Compile Include="DifferAntWindow.cs" />
     <Compile Include="Models\ChangeKind.cs" />
+    <Compile Include="Models\ChangeList.cs" />
+    <Compile Include="Parsers\GitParser.cs" />
+    <Compile Include="Parsers\IParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

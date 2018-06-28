@@ -21,6 +21,14 @@ namespace DifferAnt.ViewModels
         #endregion
 
         #region properties
+        public Change Change
+        {
+            get
+            {
+                return _change;
+            }
+        }
+
         public bool HasBeenReviewed
         {
             get

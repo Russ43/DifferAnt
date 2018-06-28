@@ -7,6 +7,8 @@ using System.Windows;
 using DifferAnt.ViewModels;
 using DifferAnt.Views;
 using DifferAnt.Models;
+using DifferAnt.Parsers;
+using System.IO;
 
 namespace DifferAnt
 {
@@ -16,18 +18,27 @@ namespace DifferAnt
         {
             Title = "DifferAnt";
 
-            IList<ChangeViewModel> changeLines = new ChangeViewModel[]
+            ChangeList changeList = null;
+
+            IParser parser = new GitParser();
+            using (Stream stdin = Console.OpenStandardInput())
             {
-                new ChangeViewModel(new Change() { Kind = ChangeKind.Add, Path = "//depot/proj1/src/A.cs"}),
-                new ChangeViewModel(new Change() { Kind = ChangeKind.Add, Path =  "//depot/proj1/src/B.cs"}),
-                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/One.cs"}),
-                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/Three.cs"}),
-                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/Two.cs"}),
-                new ChangeViewModel(new Change() { Kind = ChangeKind.Edit, Path =  "//depot/proj1/src/WonHundred.cs"}),
-                new ChangeViewModel(new Change() { Kind = ChangeKind.Remove, Path =  "//depot/proj1/src/Foo.cs"}),
+                changeList = parser.ParseChangeList(stdin);
+            }
+
+            // for testing, add some dummy values if none were found in stdout
+            if(changeList.Count == 0)
+            {
+                changeList.Add(new Change() { Kind = ChangeKind.Add, Path = "//depot/proj1/src/A.cs" });
+                changeList.Add(new Change() { Kind = ChangeKind.Add, Path = "//depot/proj1/src/B.cs" });
+                changeList.Add(new Change() { Kind = ChangeKind.Edit, Path = "//depot/proj1/src/One.cs" });
+                changeList.Add(new Change() { Kind = ChangeKind.Edit, Path = "//depot/proj1/src/Three.cs" });
+                changeList.Add(new Change() { Kind = ChangeKind.Edit, Path = "//depot/proj1/src/Two.cs" });
+                changeList.Add(new Change() { Kind = ChangeKind.Edit, Path = "//depot/proj1/src/WonHundred.cs" });
+                changeList.Add(new Change() { Kind = ChangeKind.Remove, Path = "//depot/proj1/src/Foo.cs" });
             };
 
-            ChangeListViewModel changeLineList = new ChangeListViewModel(changeLines);
+            ChangeListViewModel changeLineList = new ChangeListViewModel(changeList);
 
             ChangeListView view = new ChangeListView();
             Content = view;
